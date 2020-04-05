@@ -20,7 +20,7 @@ class AnimeGAN(object) :
 
 
         self.epoch = args.epoch
-        self.checkpoint_max_to_keep = self.epoch if self.max_to_keep_checkpoints is -1 else self.max_to_keep_checkpoints
+        self.checkpoint_max_to_keep = args.epoch if args.max_to_keep_checkpoints is -1 else args.max_to_keep_checkpoints
         self.init_epoch = args.init_epoch # args.epoch // 20
 
         self.gan_type = args.gan_type
