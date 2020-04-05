@@ -13,6 +13,7 @@ class AnimeGAN(object) :
 
         self.sess = sess
         self.checkpoint_dir = args.checkpoint_dir
+        self.checkpoint_max_to_keep = args.max_to_keep_checkpoints
         self.result_dir = args.result_dir
         self.log_dir = args.log_dir
         self.dataset_name = args.dataset
@@ -199,7 +200,7 @@ class AnimeGAN(object) :
         self.sess.run(tf.global_variables_initializer())
 
         # saver to save model
-        self.saver = tf.train.Saver(max_to_keep=self.epoch)
+        self.saver = tf.train.Saver(max_to_keep=self.epoch if self.checkpoint_max_to_keep is -1 else self.checkpoint_max_to_keep)
 
         # summary writer
         self.writer = tf.summary.FileWriter(self.log_dir + '/' + self.model_dir, self.sess.graph)

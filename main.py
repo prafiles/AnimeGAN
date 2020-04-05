@@ -14,6 +14,7 @@ def parse_args():
     parser.add_argument('--dataset', type=str, default='Hayao', help='dataset_name')
 
     parser.add_argument('--epoch', type=int, default=131, help='The number of epochs to run')
+    parser.add_argument('--max-to-keep-checkpoints', type=int, default=-1, help='The number of checkpoints to keep')
     parser.add_argument('--init_epoch', type=int, default=1, help='The number of epochs for weight initialization')
     parser.add_argument('--batch_size', type=int, default=4, help='The size of batch size')
     parser.add_argument('--save_freq', type=int, default=1, help='The number of ckpt_save_freq')
